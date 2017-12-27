@@ -4,18 +4,18 @@
 protected $insertSQL = "INSERT INTO __TABLE__ (timestamp,ip,url, brower,level, message,os,username) VALUES (?,?, ?, ?, ?, ?,?,?)";
 
 protected function format(LoggerLoggingEvent $event) {
-	  $msg = $event->getMessage();
-		$params = array();
-		$params[] = date('Y-m-d H:i:s', $event->getTimeStamp());
-    $params[] = $msg['ip'];
-    $params[] = $msg['url'];
-    $params[] = $msg['brower'];
-    $params[] = $event->getLevel();
-    $params[] = $msg['info'];
-    $params[] = $msg['os'];
-    $params[] = $msg['username'];
-		return $params;
-	}
+	$msg = $event->getMessage();
+	$params = array();
+	$params[] = date('Y-m-d H:i:s', $event->getTimeStamp());
+	$params[] = $msg['ip'];
+	$params[] = $msg['url'];
+	$params[] = $msg['brower'];
+	$params[] = $event->getLevel();
+	$params[] = $msg['info'];
+	$params[] = $msg['os'];
+	$params[] = $msg['username'];
+	return $params;
+}
   
 ```  
   
